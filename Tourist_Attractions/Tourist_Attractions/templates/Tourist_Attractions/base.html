@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 
 <head>
+
   {% block head %}
-  {% end block %}
+  {% endblock %}
 </head>
 
 <body>
-  <a href="{% url 'path_name' %}">Take me home</a>
+  <a href="{% url 'home' %}">Take me home</a>
 
   {% block content %}
-  {% end block %}
+  {% endblock %}
 </body>
