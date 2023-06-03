@@ -9,9 +9,13 @@
 
 <table>
   <tr>
-    <th>{{item.Attraction}}</th>
-    <th>{{item.State}}</th>
+    <th>Attraction</th>
+    <th>State</th>
     <th>content</th>
   </tr>
+  <tr>
+    <td>{{ item.attraction_name }}</td>
+    <td>{{ item.state }}</td>
+    <td><a href="{% url 'details' item.state|dictsort:"state"" %}">State details</a></td>
 </table>
 {% endblock %}
