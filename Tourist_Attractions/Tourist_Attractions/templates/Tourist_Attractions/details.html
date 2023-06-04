@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
-{% extends "tourist_attractions/base.html" %} {% load static %} {% block head %}
+{% extends "tourist_attractions/base.html" %}
+{% load static %}
+{% block head %}
 <link rel="stylesheet" href="{% static 'tourist_attractions/style.css' %}" />
 {% endblock %}
 
@@ -9,13 +11,16 @@
 
 <table>
   <tr>
-    <th>Attraction</th>
+    <th>Attractions</th>
     <th>State</th>
-    <th>content</th>
   </tr>
+  {% for item in attractions|dictsort:"state" %}
+  {% if item.state|lower == statename|lower %}
   <tr>
     <td>{{ item.attraction_name }}</td>
-    <td>{{ item.state }}</td>
-    <td><a href="{% url 'details' item.state|dictsort:"state"" %}">State details</a></td>
+    <td>{{ item.attraction.state }}</td>
+  </tr>
+  {% endif %}
+  {% endfor %}
 </table>
-{% endblock %}
+{%endblock %}
